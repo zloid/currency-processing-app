@@ -10,7 +10,7 @@ import rootReducer from './reducers'
 
 const store = createStore(rootReducer, applyMiddleware(logger))
 
-console.log(store.getState().exchangeReducer)
+console.log(store.getState())
 
 render(
   <Provider store={store}>

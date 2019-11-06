@@ -1,14 +1,16 @@
 import { connect } from 'react-redux'
 import ExchangeRateComponent from '../components/ExchangeRateComponent'
-import { getStartCountResult } from '../actions'
+import { setNewEuroToPlnExchangeRate } from '../actions'
 
 const mapStateToProps = state => ({
   startCount: state.exchangeReducer.startCountEur,
-  startCountResult: state.exchangeReducer.startCountResult,
+  euroToPlnExchangeRate: state.exchangeReducer.euroToPlnExchangeRate,
 })
 
 const mapDispatchToProps = dispatch => ({
-  calculateStartCount: () => dispatch(getStartCountResult()),
+  //   calculateStartCount: () => dispatch(getStartCountResult()),
+  setNewEuroToPlnExchangeRate: newRate =>
+    dispatch(setNewEuroToPlnExchangeRate(newRate)),
 })
 
 export default connect(

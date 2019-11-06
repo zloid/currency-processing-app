@@ -1,11 +1,28 @@
-// export const SET_FLOATING_POINT = 'SET_FLOATING_POINT'
-export const GET_START_COUNT_RESULT = 'GET_START_COUNT_RESULT'
+export const SET_NEW_EUR_TO_PLN_EXCHANGE_RATE =
+  'SET_NEW_EUR_TO_PLN_EXCHANGE_RATE'
+export const ADD_NAME_OF_TRANSACTION_TO_ARRAY =
+  'ADD_NAME_OF_TRANSACTION_TO_ARRAY'
+export const ADD_NEW_TRANSACTION_TO_LIST = 'ADD_NEW_TRANSACTION_TO_LIST'
 
-// export const setFloatingPoint = numberForFloatingRule => ({
-//   type: SET_FLOATING_POINT,
-//   numberForFloatingRule,
-// })
+export const setNewEuroToPlnExchangeRate = newRate => ({
+  type: SET_NEW_EUR_TO_PLN_EXCHANGE_RATE,
+  newRate,
+})
 
-export const getStartCountResult = () => ({
-  type: GET_START_COUNT_RESULT,
+export const addNameOfTransaction = transactionName => ({
+  type: ADD_NAME_OF_TRANSACTION_TO_ARRAY,
+  transactionName,
+})
+
+export const addNewTransactionToList = (
+  idOfNewTransaction,
+  nameOfTransaction,
+  eurCount,
+  visible
+) => ({
+  type: ADD_NEW_TRANSACTION_TO_LIST,
+  idOfNewTransaction,
+  nameOfTransaction,
+  eurCount,
+  visible,
 })

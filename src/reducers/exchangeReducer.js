@@ -1,23 +1,20 @@
-import { GET_START_COUNT_RESULT } from '../actions'
+import { SET_NEW_EUR_TO_PLN_EXCHANGE_RATE } from '../actions'
 
 const setFloatingPoint = numberForHandler => {
   return +numberForHandler.toFixed(2)
 }
 
 const initialState = {
-  startCountEur: 10,
-  euroToPlnExchangeRate: 4.26,
-  startCountResult: 0,
+  startCountEur: 1,
+  euroToPlnExchangeRate: 4.25,
 }
 
 const exchangeReducer = (state = initialState, action) => {
   switch (action.type) {
-    case GET_START_COUNT_RESULT:
+    case SET_NEW_EUR_TO_PLN_EXCHANGE_RATE:
       return {
         ...state,
-        startCountResult: setFloatingPoint(
-          state.startCountEur * state.euroToPlnExchangeRate
-        ),
+        euroToPlnExchangeRate: action.newRate,
       }
 
     default:
