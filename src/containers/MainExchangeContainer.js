@@ -5,10 +5,11 @@ import { addNameOfTransaction, addNewTransactionToList } from '../actions'
 const mapStateToProps = state => ({
   euroToPlnExchangeRate: state.exchangeReducer.euroToPlnExchangeRate,
   transactionsNameList: state.listOfTransactionReducer.transactionsNameList,
-  allTransactionList: state.listOfTransactionReducer.allTransactionList,
+//   allTransactionList: state.listOfTransactionReducer.allTransactionList,
 })
 
 const mapDispatchToProps = dispatch => ({
+
   addNameOfTransaction: transactionName =>
     dispatch(addNameOfTransaction(transactionName)),
 
@@ -26,6 +27,7 @@ const mapDispatchToProps = dispatch => ({
         visible
       )
     ),
+    // deleteOneTransactionFromList: id => dispatch(deleteOneTransactionFromList(id))
 })
 
 export default connect(

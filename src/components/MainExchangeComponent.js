@@ -1,29 +1,44 @@
 import React, { useState } from 'react'
+// import AllTransactionsListComponent from './AllTransactionsListComponent'
 import PropTypes from 'prop-types'
 
 const MainExchangeComponent = ({
   euroToPlnExchangeRate,
   addNameOfTransaction,
   transactionsNameList,
-  allTransactionList,
-  addNewTransactionToList
+  addNewTransactionToList,
+  deleteOneTransactionFromList,
 }) => {
-  const [transactionName, setTransactionName] = useState('tr 1')
+  const [transactionName, setTransactionName] = useState('')
+  const [transactionAmount, setTransactionAmount] = useState(1)
 
   const clickHandler = () => {
+    let middle
     if (!transactionName.trim()) {
-    //   return addNameOfTransaction(
-    //     new Date()
-    //       .toISOString()
-    //       .slice(0, 19)
-    //       .replace(/T/, ', ')
-    //   )
+      middle = new Date().toLocaleString()
+    } else {
+      middle = transactionName
     }
-    // addNameOfTransaction(transactionName)
     setTransactionName('')
 
-    addNewTransactionToList(Math.floor(Date.now() * Math.random()), '222', 333, false)
+    addNewTransactionToList(
+      Math.floor(Date.now() * Math.random()),
+      middle,
+      transactionAmount,
+      true
+    )
   }
+
+  const handlerForInputField = e => {
+    let middleValue = e.target.value
+      .replace(/[^0-9.]/, '')
+      .replace(/^\./, '0.')
+      .replace(/^0+(\d)/, '$1')
+      .replace(/(\s*\.\s*)+/g, '$1')
+      .replace(/(\d+\.\d+)\./g, '$1')
+    setTransactionAmount(middleValue)
+  }
+
   return (
     <div>
       <strong>MainExchangeComponent</strong>
@@ -37,8 +52,14 @@ const MainExchangeComponent = ({
         />
       </fieldset>
       <fieldset>
-        <legend>EUR {euroToPlnExchangeRate}</legend>
-        <input type="text" placeholder="kwota..." />
+        <legend>EUR</legend>
+        <input
+          type="text"
+          placeholder="kwota..."
+          value={transactionAmount}
+        //   onChange={e => setTransactionAmount(e.target.value)}
+        onChange={handlerForInputField}
+        />
       </fieldset>
 
       <button onClick={clickHandler}>Dodawanie transakcji walutowej</button>
@@ -47,10 +68,6 @@ const MainExchangeComponent = ({
         <p key={key}>{name + ' - ' + key}</p>
       ))}
       <hr />
-
-      {allTransactionList.map(obj => (
-        <p key={obj.idOfNewTransaction}>{obj.idOfNewTransaction + ' - ' + obj.nameOfTransaction + ' - ' + obj.eurCount + ' -> ' + obj.eurCount * euroToPlnExchangeRate  + ' <- ' + obj.visible}</p>
-      ))}
     </div>
   )
 }

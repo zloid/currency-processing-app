@@ -1,20 +1,21 @@
 import {
   ADD_NAME_OF_TRANSACTION_TO_ARRAY,
   ADD_NEW_TRANSACTION_TO_LIST,
+  DELETE_ONE_TRANSACTION_FROM_LIST
 } from '../actions'
 
 const initialState = {
   transactionsNameList: [],
   allTransactionList: [
     {
-      idOfNewTransaction: 8769756,
-      nameOfTransaction: 'some name',
-      eurCount: 77,
+      idOfNewTransaction: 1234567890,
+      nameOfTransaction: 'Test transaction',
+      eurCount: 777,
       visible: true,
     },
     {
-      idOfNewTransaction: 123123,
-      nameOfTransaction: 'new transac. name',
+      idOfNewTransaction: 12312312312312,
+      nameOfTransaction: '11/6/2019, 9:00:25 PM',
       eurCount: 100,
       visible: true,
     },
@@ -44,6 +45,17 @@ const listOfTransactionReducer = (state = initialState, action) => {
           },
         ],
       }
+      case DELETE_ONE_TRANSACTION_FROM_LIST:
+          return {
+              ...state,
+              allTransactionList: [
+                ...state.allTransactionList.map(obj => {
+                    if (obj.idOfNewTransaction === action.id) {
+                        return {...obj, visible: !obj.visible}
+                    } else return obj
+                })
+              ]
+          }
     default:
       return state
   }

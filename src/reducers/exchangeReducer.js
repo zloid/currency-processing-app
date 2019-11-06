@@ -1,8 +1,8 @@
 import { SET_NEW_EUR_TO_PLN_EXCHANGE_RATE } from '../actions'
 
-const setFloatingPoint = numberForHandler => {
-  return +numberForHandler.toFixed(2)
-}
+// const setFloatingPoint = numberForHandler => {
+//   return +numberForHandler.toFixed(2)
+// }
 
 const initialState = {
   startCountEur: 1,
