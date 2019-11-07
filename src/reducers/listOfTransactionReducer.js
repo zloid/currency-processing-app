@@ -109,17 +109,15 @@ function getMaxEurTransactionValue(allTransactionListArray) {
 function getNameOfMaxTransaction(allTransactionListArray) {
   let maxEurValue = getMaxEurTransactionValue(allTransactionListArray)
 
-
   let filteredArray = allTransactionListArray.filter(
     obj => obj.visible === true
   )
   let countExistTransaction = filteredArray.length
   if (countExistTransaction > 0) {
-      let resultArr = filteredArray.filter(obj => obj.eurCount === maxEurValue)
-      return resultArr[0].nameOfTransaction
+    let resultArr = filteredArray.filter(obj => obj.eurCount === maxEurValue)
+    return resultArr[0].nameOfTransaction
   }
   return 'Brak transakcji'
-
 }
 
 export default listOfTransactionReducer

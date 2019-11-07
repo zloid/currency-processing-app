@@ -3,7 +3,6 @@ import { Row, Col, Button } from 'react-bootstrap'
 import PropTypes from 'prop-types'
 
 const MainExchangeComponent = ({
-  euroToPlnExchangeRate,
   addNewTransactionToList,
   countAllEurTransaction,
   getMaxValueFromTransactionList,
@@ -13,21 +12,20 @@ const MainExchangeComponent = ({
 
   const clickHandler = () => {
     let middleTransactionName
+    //if field is empty -> get name as current date
     if (!transactionName.trim()) {
       middleTransactionName = new Date().toLocaleString()
     } else {
       middleTransactionName = transactionName
     }
     setTransactionName('')
-
-    // console.log( String(transactionAmount))
-
+    //if money field is empty -> abort transaction
     let middleTransactionAmount = String(transactionAmount)
     if (!middleTransactionAmount.trim()) {
       alert('Dodaj kwotę')
       return
     }
-
+    //create and push new transaction element
     addNewTransactionToList(
       Math.floor(Date.now() * Math.random()),
       middleTransactionName,
@@ -87,7 +85,6 @@ const MainExchangeComponent = ({
 }
 
 MainExchangeComponent.propTypes = {
-  euroToPlnExchangeRate: PropTypes.number.isRequired,
   addNewTransactionToList: PropTypes.func.isRequired,
   countAllEurTransaction: PropTypes.func.isRequired,
   getMaxValueFromTransactionList: PropTypes.func.isRequired,

@@ -20,10 +20,6 @@ const OneTransactionComponent = ({
       <Button onClick={funcOnClick} variant="danger">
         USUŃ
       </Button>
-
-      {/* <div style={miniStyle}>{eurCount}</div>
-      <div style={miniStyle}>{plnCountOutput}</div>
-      <button onClick={funcOnClick}>DELETE</button> */}
     </Row>
   )
 }

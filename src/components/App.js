@@ -6,15 +6,13 @@ import { Container } from 'react-bootstrap'
 
 import './App.css'
 
-
-
 function App() {
   return (
-      <Container>
-        <ExchangeRateContainer />
-        <MainExchangeContainer />
-        <AllTransactionsListContainer />
-      </Container>
+    <Container>
+      <ExchangeRateContainer />
+      <MainExchangeContainer />
+      <AllTransactionsListContainer />
+    </Container>
   )
 }
 

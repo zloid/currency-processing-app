@@ -1,7 +1,5 @@
 import { SET_NEW_EUR_TO_PLN_EXCHANGE_RATE } from '../actions'
 
-
-
 const initialState = {
   startCountEur: 1,
   euroToPlnExchangeRate: 4.25,

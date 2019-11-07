@@ -8,7 +8,6 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  //   calculateStartCount: () => dispatch(getStartCountResult()),
   setNewEuroToPlnExchangeRate: newRate =>
     dispatch(setNewEuroToPlnExchangeRate(newRate)),
 })

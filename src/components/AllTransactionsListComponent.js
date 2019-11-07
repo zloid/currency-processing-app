@@ -39,29 +39,25 @@ const AllTransactionsListComponent = ({
       <Col>
         <h4>Lista dodanych transakcji</h4>
         <br />
-        {/* <Col xs={12}> */}
-          <Row>
-            <Col xs={1}>NAZWA </Col>
-            <Col xs={2}></Col>
-            <Col xs={3}>KWOTA W EURO</Col>
-            <Col xs={3}>KWOTA W PLN</Col>
-          </Row>
-        {/* </Col> */}
+
+        <Row>
+          <Col xs={1}>NAZWA </Col>
+          <Col xs={2}></Col>
+          <Col xs={3}>KWOTA W EURO</Col>
+          <Col xs={3}>KWOTA W PLN</Col>
+        </Row>
+
         {listOfAllTransaction}
         <br />
         <h4>
           <Badge variant="info">Suma wszystkich transakcji</Badge>
         </h4>
-
         <strong>EURO : {countedAllEurTransaction}</strong>
-
         <br />
-
         <strong>
           PLN :{' '}
           {setFloatingPoint(countedAllEurTransaction * euroToPlnExchangeRate)}
         </strong>
-
         <br />
         <hr />
       </Col>
