@@ -33,6 +33,7 @@ body {
 
 .col {
   border-right: 2px solid #ccc;
+  padding-right: 18px;
 }
 
 .colBorder {
@@ -51,8 +52,6 @@ input {
   max-width: 70px;
 }
 
-
-button.btn.btn-outline-success {
-  /* padding: 3px !important; */
-  /* color: red; */
+.container {
+  padding-top: 10px;
 }

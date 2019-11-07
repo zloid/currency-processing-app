@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import OneTransactionComponent from './OneTransactionComponent'
-import { Row, Col } from 'react-bootstrap'
+import { Row, Col, Badge } from 'react-bootstrap'
 
 const AllTransactionsListComponent = ({
   allTransactionList,
@@ -37,32 +37,43 @@ const AllTransactionsListComponent = ({
   return (
     <Row>
       <Col>
-      <Col xs={6}>1 <Row>row</Row></Col>
-      <Col xs={6}>1</Col>
-        name ------ EUR-----PL ---- del---
-        
-        
-
+        <h4>Lista dodanych transakcji</h4>
+        <br />
+        {/* <Col xs={12}> */}
+          <Row>
+            <Col xs={1}>NAZWA </Col>
+            <Col xs={2}></Col>
+            <Col xs={3}>KWOTA W EURO</Col>
+            <Col xs={3}>KWOTA W PLN</Col>
+          </Row>
+        {/* </Col> */}
         {listOfAllTransaction}
         <br />
-        <strong>count All EUR Transaction: {countedAllEurTransaction}</strong>
+        <h4>
+          <Badge variant="info">Suma wszystkich transakcji</Badge>
+        </h4>
+
+        <strong>EURO : {countedAllEurTransaction}</strong>
+
         <br />
+
         <strong>
-          count All PLN Transaction:{' '}
+          PLN :{' '}
           {setFloatingPoint(countedAllEurTransaction * euroToPlnExchangeRate)}
         </strong>
+
         <br />
         <hr />
       </Col>
       <Col xs={4}>
-        <strong>MAX VALUE</strong>
+        <h4>Największa transakcja</h4>
         <br />
-        name: {nameOfMaxEurTransaction}
-        <br />
-        valuePL:{' '}
+        <strong>Nazwa :</strong> {nameOfMaxEurTransaction}
+        <hr />
+        <strong>Kwota w PLN :</strong>{' '}
         {setFloatingPoint(maxValueOfEurTransaction * euroToPlnExchangeRate)}
-        <br />
-        valueEUR: {maxValueOfEurTransaction}
+        <hr />
+        <strong>Kwota w EURO :</strong> {maxValueOfEurTransaction}
       </Col>
     </Row>
   )

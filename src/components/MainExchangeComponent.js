@@ -42,7 +42,7 @@ const MainExchangeComponent = ({
 
   return (
     <Row>
-      <Col>
+      <Col xs={8}>
         <fieldset>
           <legend>Nazwa transakcji</legend>
           <input

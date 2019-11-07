@@ -118,7 +118,7 @@ function getNameOfMaxTransaction(allTransactionListArray) {
       let resultArr = filteredArray.filter(obj => obj.eurCount === maxEurValue)
       return resultArr[0].nameOfTransaction
   }
-  return 'Create new transaction'
+  return 'Brak transakcji'
 
 }
 

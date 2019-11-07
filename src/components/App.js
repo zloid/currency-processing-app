@@ -10,13 +10,11 @@ import './App.css'
 
 function App() {
   return (
-    <>
       <Container>
         <ExchangeRateContainer />
         <MainExchangeContainer />
         <AllTransactionsListContainer />
       </Container>
-    </>
   )
 }
 
