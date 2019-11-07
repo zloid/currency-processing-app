@@ -1,4 +1,5 @@
 import React from 'react'
+import { Row, Col, Button } from 'react-bootstrap'
 import PropTypes from 'prop-types'
 
 const OneTransactionComponent = ({
@@ -7,14 +8,23 @@ const OneTransactionComponent = ({
   plnCountOutput,
   funcOnClick,
 }) => {
-  const miniStyle = { border: '1px solid', display: 'inline' }
   return (
-    <div>
-      <div style={miniStyle}>{nameOfTransaction}</div>
-      <div style={miniStyle}>{eurCount}</div>
+    <Row>
+      <Col xs={3} className="colBorder">
+        {nameOfTransaction}
+      </Col>
+      <Col xs={3} className="colBorder">
+        {eurCount}
+      </Col>
+      <Col xs={4}>{plnCountOutput}</Col>
+      <Button onClick={funcOnClick} variant="danger">
+        USUŃ
+      </Button>
+
+      {/* <div style={miniStyle}>{eurCount}</div>
       <div style={miniStyle}>{plnCountOutput}</div>
-      <button onClick={funcOnClick}>DELETE</button>
-    </div>
+      <button onClick={funcOnClick}>DELETE</button> */}
+    </Row>
   )
 }
 

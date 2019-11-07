@@ -1,3 +1,7 @@
+body {
+  /* background: #f4ecd7 */
+}
+
 .App {
   text-align: center;
 }
@@ -19,4 +23,36 @@
 
 .App-link {
   color: #09d3ac;
+}
+
+.row {
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  padding: 4px;
+}
+
+.col {
+  border-right: 2px solid #ccc;
+}
+
+.colBorder {
+  border-right: 1px solid;
+  /* padding: 10px; */
+  overflow: hidden;
+}
+
+input {
+  border-radius: 2px;
+  padding: 2px;
+  width: 100%;
+}
+
+.inputOne {
+  max-width: 70px;
+}
+
+
+button.btn.btn-outline-success {
+  /* padding: 3px !important; */
+  /* color: red; */
 }

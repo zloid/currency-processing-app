@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Row, Col } from 'react-bootstrap'
 import PropTypes from 'prop-types'
 
 const ExchangeRateComponent = ({
@@ -21,18 +22,17 @@ const ExchangeRateComponent = ({
   }
 
   return (
-    <div>
-      <hr />
-      ExchangeRateComponent
-      <br />
-      <br />
-      <strong>Przelicznik walutowy</strong>
-      <br />
-      {startCount} EURO ={' '}
-      <input type="text" value={rate} onChange={handlerForInputField} />
-      PLN
-      <hr />
-    </div>
+    <Row>
+      <Col>
+        <strong>{startCount} EURO =</strong>{' '}
+        <input type="text" value={rate} onChange={handlerForInputField}  className="inputOne"/>
+        {' '}
+        <strong>PLN</strong>
+      </Col>
+      <Col xs={8}>
+        <h3>Przelicznik walutowy</h3>
+      </Col>
+    </Row>
   )
 }
 

@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
+import { Row, Col, Button } from 'react-bootstrap'
 import PropTypes from 'prop-types'
 
 const MainExchangeComponent = ({
   euroToPlnExchangeRate,
   addNewTransactionToList,
   countAllEurTransaction,
-  getMaxValueFromTransactionList
+  getMaxValueFromTransactionList,
 }) => {
   const [transactionName, setTransactionName] = useState('')
   const [transactionAmount, setTransactionAmount] = useState(1)
@@ -29,7 +30,6 @@ const MainExchangeComponent = ({
     getMaxValueFromTransactionList()
   }
 
-
   const handlerForInputFieldEur = e => {
     let middleValue = e.target.value
       .replace(/[^0-9.]/, '')
@@ -41,31 +41,37 @@ const MainExchangeComponent = ({
   }
 
   return (
-    <div>
-      <strong>MainExchangeComponent</strong>
-      <fieldset>
-        <legend>Nazwa transakcji</legend>
-        <input
-          type="text"
-          placeholder="nazwa transakcji..."
-          value={transactionName}
-          onChange={e => setTransactionName(e.target.value)}
-        />
-      </fieldset>
-      <fieldset>
-        <legend>EUR</legend>
-        <input
-          type="text"
-          placeholder="kwota..."
-          value={transactionAmount}
-          onChange={handlerForInputFieldEur}
-        />
-      </fieldset>
-
-      <button onClick={clickHandler}>Dodawanie transakcji walutowej</button>
-      
+    <Row>
+      <Col>
+        <fieldset>
+          <legend>Nazwa transakcji</legend>
+          <input
+            type="text"
+            placeholder="nazwa transakcji..."
+            value={transactionName}
+            onChange={e => setTransactionName(e.target.value)}
+          />
+        </fieldset>
+        <fieldset>
+          <legend>Kwota w EURO</legend>
+          <input
+            type="text"
+            placeholder="kwota..."
+            value={transactionAmount}
+            onChange={handlerForInputFieldEur}
+          />
+        </fieldset>
+      </Col>
+      <Col xs={12}>
+        <br />
+        <Button onClick={clickHandler} variant="success">
+          Dodawanie transakcji walutowej
+        </Button>
+        <br />
+        <br />
+      </Col>
       <hr />
-    </div>
+    </Row>
   )
 }
 
