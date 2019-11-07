@@ -1,17 +1,16 @@
 import { connect } from 'react-redux'
 import MainExchangeComponent from '../components/MainExchangeComponent'
-import { addNameOfTransaction, addNewTransactionToList } from '../actions'
+import { addNewTransactionToList, countAllEurTransaction } from '../actions'
 
 const mapStateToProps = state => ({
   euroToPlnExchangeRate: state.exchangeReducer.euroToPlnExchangeRate,
-  transactionsNameList: state.listOfTransactionReducer.transactionsNameList,
-//   allTransactionList: state.listOfTransactionReducer.allTransactionList,
+//   transactionsNameList: state.listOfTransactionReducer.transactionsNameList,
+  //   allTransactionList: state.listOfTransactionReducer.allTransactionList,
 })
 
 const mapDispatchToProps = dispatch => ({
-
-  addNameOfTransaction: transactionName =>
-    dispatch(addNameOfTransaction(transactionName)),
+  //   addNameOfTransaction: transactionName =>
+  //     dispatch(addNameOfTransaction(transactionName)),
 
   addNewTransactionToList: (
     idOfNewTransaction,
@@ -27,7 +26,8 @@ const mapDispatchToProps = dispatch => ({
         visible
       )
     ),
-    // deleteOneTransactionFromList: id => dispatch(deleteOneTransactionFromList(id))
+  // deleteOneTransactionFromList: id => dispatch(deleteOneTransactionFromList(id))
+  countAllEurTransaction: () => dispatch(countAllEurTransaction())
 })
 
 export default connect(

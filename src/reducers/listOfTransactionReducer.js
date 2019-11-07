@@ -1,11 +1,11 @@
 import {
-  ADD_NAME_OF_TRANSACTION_TO_ARRAY,
+  //   ADD_NAME_OF_TRANSACTION_TO_ARRAY,
   ADD_NEW_TRANSACTION_TO_LIST,
-  DELETE_ONE_TRANSACTION_FROM_LIST
+  DELETE_ONE_TRANSACTION_FROM_LIST,
+  COUNT_ALL_EUR_TRANSACTION,
 } from '../actions'
 
 const initialState = {
-  transactionsNameList: [],
   allTransactionList: [
     {
       idOfNewTransaction: 1234567890,
@@ -20,18 +20,26 @@ const initialState = {
       visible: true,
     },
   ],
+  countedAllEurTransaction: 877,
+}
+
+const getAllEurFromList = allTransactionListArray => {
+  let filteredArray = allTransactionListArray.filter(
+    obj => obj.visible === true
+  )
+  let countExistTransaction = filteredArray.length
+
+  if (countExistTransaction > 0) {
+    return filteredArray
+      .map(obj => obj.eurCount)
+      .reduce((accum, currentVal) => accum + currentVal)
+  }
+
+  return countExistTransaction
 }
 
 const listOfTransactionReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_NAME_OF_TRANSACTION_TO_ARRAY:
-      return {
-        ...state,
-        transactionsNameList: [
-          ...state.transactionsNameList,
-          action.transactionName,
-        ],
-      }
     case ADD_NEW_TRANSACTION_TO_LIST:
       return {
         ...state,
@@ -45,17 +53,22 @@ const listOfTransactionReducer = (state = initialState, action) => {
           },
         ],
       }
-      case DELETE_ONE_TRANSACTION_FROM_LIST:
-          return {
-              ...state,
-              allTransactionList: [
-                ...state.allTransactionList.map(obj => {
-                    if (obj.idOfNewTransaction === action.id) {
-                        return {...obj, visible: !obj.visible}
-                    } else return obj
-                })
-              ]
-          }
+    case DELETE_ONE_TRANSACTION_FROM_LIST:
+      return {
+        ...state,
+        allTransactionList: [
+          ...state.allTransactionList.map(obj => {
+            if (obj.idOfNewTransaction === action.id) {
+              return { ...obj, visible: !obj.visible }
+            } else return obj
+          }),
+        ],
+      }
+    case COUNT_ALL_EUR_TRANSACTION:
+      return {
+        ...state,
+        countedAllEurTransaction: getAllEurFromList(state.allTransactionList),
+      }
     default:
       return state
   }

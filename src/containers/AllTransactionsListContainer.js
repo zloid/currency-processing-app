@@ -1,16 +1,18 @@
 import { connect } from 'react-redux'
-import { deleteOneTransactionFromList } from '../actions'
+import { deleteOneTransactionFromList, countAllEurTransaction } from '../actions'
 
 import AllTransactionsListComponent from '../components/AllTransactionsListComponent'
 
-const mapstateToProps = state => ({
+const mapStateToProps = state => ({
   allTransactionList: state.listOfTransactionReducer.allTransactionList,
   euroToPlnExchangeRate: state.exchangeReducer.euroToPlnExchangeRate,
+  countedAllEurTransaction: state.listOfTransactionReducer.countedAllEurTransaction,
 })
 
 const mapDispatchToProps = dispatch => ({
   deleteOneTransactionFromList: id =>
     dispatch(deleteOneTransactionFromList(id)),
+    countAllEurTransaction: () => dispatch(countAllEurTransaction())
 })
 
-export default connect(mapstateToProps, mapDispatchToProps)(AllTransactionsListComponent)
+export default connect(mapStateToProps, mapDispatchToProps)(AllTransactionsListComponent)

@@ -4,29 +4,31 @@ import PropTypes from 'prop-types'
 
 const MainExchangeComponent = ({
   euroToPlnExchangeRate,
-  addNameOfTransaction,
-  transactionsNameList,
+  //   addNameOfTransaction,
+  //   transactionsNameList,
   addNewTransactionToList,
-  deleteOneTransactionFromList,
+  //   deleteOneTransactionFromList,
+  countAllEurTransaction
 }) => {
   const [transactionName, setTransactionName] = useState('')
   const [transactionAmount, setTransactionAmount] = useState(1)
 
   const clickHandler = () => {
-    let middle
+    let middleValue
     if (!transactionName.trim()) {
-      middle = new Date().toLocaleString()
+      middleValue = new Date().toLocaleString()
     } else {
-      middle = transactionName
+      middleValue = transactionName
     }
     setTransactionName('')
 
     addNewTransactionToList(
       Math.floor(Date.now() * Math.random()),
-      middle,
-      transactionAmount,
+      middleValue,
+      +transactionAmount,
       true
     )
+    countAllEurTransaction()
   }
 
   const handlerForInputField = e => {
@@ -57,26 +59,27 @@ const MainExchangeComponent = ({
           type="text"
           placeholder="kwota..."
           value={transactionAmount}
-        //   onChange={e => setTransactionAmount(e.target.value)}
-        onChange={handlerForInputField}
+          //   onChange={e => setTransactionAmount(e.target.value)}
+          onChange={handlerForInputField}
         />
       </fieldset>
 
       <button onClick={clickHandler}>Dodawanie transakcji walutowej</button>
-      <hr />
+      {/* <hr />
       {transactionsNameList.map((name, key) => (
         <p key={key}>{name + ' - ' + key}</p>
-      ))}
+      ))} */}
       <hr />
     </div>
   )
 }
 
 MainExchangeComponent.propTypes = {
-  addNameOfTransaction: PropTypes.func.isRequired,
   euroToPlnExchangeRate: PropTypes.number.isRequired,
-  transactionsNameList: PropTypes.array.isRequired,
+  //   addNameOfTransaction: PropTypes.func.isRequired,
+  //   transactionsNameList: PropTypes.array.isRequired,
   addNewTransactionToList: PropTypes.func.isRequired,
+  countAllEurTransaction: PropTypes.func.isRequired,
 }
 
 export default MainExchangeComponent
