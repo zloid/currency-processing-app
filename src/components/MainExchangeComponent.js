@@ -12,31 +12,42 @@ const MainExchangeComponent = ({
   const [transactionAmount, setTransactionAmount] = useState(1)
 
   const clickHandler = () => {
-    let middleValue
+    let middleTransactionName
     if (!transactionName.trim()) {
-      middleValue = new Date().toLocaleString()
+      middleTransactionName = new Date().toLocaleString()
     } else {
-      middleValue = transactionName
+      middleTransactionName = transactionName
     }
     setTransactionName('')
 
+    // console.log( String(transactionAmount))
+
+    let middleTransactionAmount = String(transactionAmount)
+    if (!middleTransactionAmount.trim()) {
+      alert('Dodaj kwotę')
+      return
+    }
+
     addNewTransactionToList(
       Math.floor(Date.now() * Math.random()),
-      middleValue,
+      middleTransactionName,
       +transactionAmount,
       true
     )
+
     countAllEurTransaction()
     getMaxValueFromTransactionList()
   }
 
   const handlerForInputFieldEur = e => {
     let middleValue = e.target.value
-      .replace(/[^0-9.]/, '')
+      .replace(/[^0-9.,]/, '')
+      .replace(/,/g, '.')
       .replace(/^\./, '0.')
       .replace(/^0+(\d)/, '$1')
       .replace(/(\s*\.\s*)+/g, '$1')
       .replace(/(\d+\.\d+)\./g, '$1')
+
     setTransactionAmount(middleValue)
   }
 

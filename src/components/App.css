@@ -29,11 +29,13 @@ body {
   border: 2px solid #ccc;
   border-radius: 4px;
   padding: 4px;
+  overflow: hidden;
 }
 
 .col {
   border-right: 2px solid #ccc;
   padding-right: 18px;
+  overflow: hidden;
 }
 
 .colBorder {
@@ -53,5 +55,6 @@ input {
 }
 
 .container {
-  padding-top: 10px;
+  padding-top: 20px;
+  overflow: hidden;
 }

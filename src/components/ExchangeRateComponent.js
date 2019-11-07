@@ -12,7 +12,8 @@ const ExchangeRateComponent = ({
   //get good float-like string and do action
   const handlerForInputField = e => {
     let middleValue = e.target.value
-      .replace(/[^0-9.]/, '')
+      .replace(/[^0-9.,]/, '')
+      .replace(/,/g, '.')
       .replace(/^\./, '0.')
       .replace(/^0+(\d)/, '$1')
       .replace(/(\s*\.\s*)+/g, '$1')
