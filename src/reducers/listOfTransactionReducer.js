@@ -1,8 +1,8 @@
 import {
-  //   ADD_NAME_OF_TRANSACTION_TO_ARRAY,
   ADD_NEW_TRANSACTION_TO_LIST,
   DELETE_ONE_TRANSACTION_FROM_LIST,
   COUNT_ALL_EUR_TRANSACTION,
+  GET_MAX_VALUE_FROM_TRANSACTIONS_LIST,
 } from '../actions'
 
 const initialState = {
@@ -21,21 +21,8 @@ const initialState = {
     },
   ],
   countedAllEurTransaction: 877,
-}
-
-const getAllEurFromList = allTransactionListArray => {
-  let filteredArray = allTransactionListArray.filter(
-    obj => obj.visible === true
-  )
-  let countExistTransaction = filteredArray.length
-
-  if (countExistTransaction > 0) {
-    return filteredArray
-      .map(obj => obj.eurCount)
-      .reduce((accum, currentVal) => accum + currentVal)
-  }
-
-  return countExistTransaction
+  nameOfMaxEurTransaction: 'Test transaction',
+  maxValueOfEurTransaction: 777,
 }
 
 const listOfTransactionReducer = (state = initialState, action) => {
@@ -48,7 +35,7 @@ const listOfTransactionReducer = (state = initialState, action) => {
           {
             idOfNewTransaction: action.idOfNewTransaction,
             nameOfTransaction: action.nameOfTransaction,
-            eurCount: action.eurCount,
+            eurCount: setFloatingPoint(action.eurCount),
             visible: action.visible,
           },
         ],
@@ -69,9 +56,70 @@ const listOfTransactionReducer = (state = initialState, action) => {
         ...state,
         countedAllEurTransaction: getAllEurFromList(state.allTransactionList),
       }
+    case GET_MAX_VALUE_FROM_TRANSACTIONS_LIST:
+      return {
+        ...state,
+        nameOfMaxEurTransaction: getNameOfMaxTransaction(
+          state.allTransactionList
+        ),
+        maxValueOfEurTransaction: getMaxEurTransactionValue(
+          state.allTransactionList
+        ),
+      }
     default:
       return state
   }
+}
+
+function setFloatingPoint(numberForHandler) {
+  return +numberForHandler.toFixed(2)
+}
+
+function getAllEurFromList(allTransactionListArray) {
+  let filteredArray = allTransactionListArray.filter(
+    obj => obj.visible === true
+  )
+  let countExistTransaction = filteredArray.length
+
+  if (countExistTransaction > 0) {
+    return setFloatingPoint(
+      filteredArray
+        .map(obj => obj.eurCount)
+        .reduce((accum, currentVal) => accum + currentVal)
+    )
+  }
+
+  return countExistTransaction
+}
+
+function getMaxEurTransactionValue(allTransactionListArray) {
+  let filteredArray = allTransactionListArray.filter(
+    obj => obj.visible === true
+  )
+  let countExistTransaction = filteredArray.length
+  if (countExistTransaction > 0) {
+    let arrayOfEurFromList = filteredArray.map(obj => obj.eurCount)
+    let maxValue = arrayOfEurFromList.reduce((a, b) => Math.max(a, b))
+    return maxValue
+  }
+
+  return countExistTransaction
+}
+
+function getNameOfMaxTransaction(allTransactionListArray) {
+  let maxEurValue = getMaxEurTransactionValue(allTransactionListArray)
+
+
+  let filteredArray = allTransactionListArray.filter(
+    obj => obj.visible === true
+  )
+  let countExistTransaction = filteredArray.length
+  if (countExistTransaction > 0) {
+      let resultArr = filteredArray.filter(obj => obj.eurCount === maxEurValue)
+      return resultArr[0].nameOfTransaction
+  }
+  return 'Create new transaction'
+
 }
 
 export default listOfTransactionReducer

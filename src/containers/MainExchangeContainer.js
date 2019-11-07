@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import MainExchangeComponent from '../components/MainExchangeComponent'
-import { addNewTransactionToList, countAllEurTransaction } from '../actions'
+import { addNewTransactionToList, countAllEurTransaction, getMaxValueFromTransactionList } from '../actions'
 
 const mapStateToProps = state => ({
   euroToPlnExchangeRate: state.exchangeReducer.euroToPlnExchangeRate,
@@ -27,7 +27,8 @@ const mapDispatchToProps = dispatch => ({
       )
     ),
   // deleteOneTransactionFromList: id => dispatch(deleteOneTransactionFromList(id))
-  countAllEurTransaction: () => dispatch(countAllEurTransaction())
+  countAllEurTransaction: () => dispatch(countAllEurTransaction()),
+  getMaxValueFromTransactionList: () => dispatch(getMaxValueFromTransactionList())
 })
 
 export default connect(

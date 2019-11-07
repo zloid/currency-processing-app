@@ -1,14 +1,11 @@
 import React, { useState } from 'react'
-// import AllTransactionsListComponent from './AllTransactionsListComponent'
 import PropTypes from 'prop-types'
 
 const MainExchangeComponent = ({
   euroToPlnExchangeRate,
-  //   addNameOfTransaction,
-  //   transactionsNameList,
   addNewTransactionToList,
-  //   deleteOneTransactionFromList,
-  countAllEurTransaction
+  countAllEurTransaction,
+  getMaxValueFromTransactionList
 }) => {
   const [transactionName, setTransactionName] = useState('')
   const [transactionAmount, setTransactionAmount] = useState(1)
@@ -29,9 +26,11 @@ const MainExchangeComponent = ({
       true
     )
     countAllEurTransaction()
+    getMaxValueFromTransactionList()
   }
 
-  const handlerForInputField = e => {
+
+  const handlerForInputFieldEur = e => {
     let middleValue = e.target.value
       .replace(/[^0-9.]/, '')
       .replace(/^\./, '0.')
@@ -59,16 +58,12 @@ const MainExchangeComponent = ({
           type="text"
           placeholder="kwota..."
           value={transactionAmount}
-          //   onChange={e => setTransactionAmount(e.target.value)}
-          onChange={handlerForInputField}
+          onChange={handlerForInputFieldEur}
         />
       </fieldset>
 
       <button onClick={clickHandler}>Dodawanie transakcji walutowej</button>
-      {/* <hr />
-      {transactionsNameList.map((name, key) => (
-        <p key={key}>{name + ' - ' + key}</p>
-      ))} */}
+      
       <hr />
     </div>
   )
@@ -76,10 +71,9 @@ const MainExchangeComponent = ({
 
 MainExchangeComponent.propTypes = {
   euroToPlnExchangeRate: PropTypes.number.isRequired,
-  //   addNameOfTransaction: PropTypes.func.isRequired,
-  //   transactionsNameList: PropTypes.array.isRequired,
   addNewTransactionToList: PropTypes.func.isRequired,
   countAllEurTransaction: PropTypes.func.isRequired,
+  getMaxValueFromTransactionList: PropTypes.func.isRequired,
 }
 
 export default MainExchangeComponent

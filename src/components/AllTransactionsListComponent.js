@@ -1,31 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
-const OneTransaction = ({
-  // idOfNewTransaction,
-  nameOfTransaction,
-  eurCount,
-  plnCountOutput,
-  // visible,
-  funcOnClick,
-}) => {
-  // const clickHandler = () => {
-  //   console.log(idOfNewTransaction)
-  // }
-  const miniStyle = { border: '1px solid', display: 'inline' }
-  return (
-    <div>
-      {/* <div style={miniStyle}>
-        <del>{idOfNewTransaction}</del>
-      </div> */}
-      <div style={miniStyle}>{nameOfTransaction}</div>
-      <div style={miniStyle}>{eurCount}</div>
-      <div style={miniStyle}>{plnCountOutput}</div>
-      <div style={miniStyle}>{/* <del>{visible}</del> */}</div>
-      <button onClick={funcOnClick}>DELETE</button>
-    </div>
-  )
-}
+import OneTransactionComponent from './OneTransactionComponent'
 
 const AllTransactionsListComponent = ({
   allTransactionList,
@@ -33,33 +8,27 @@ const AllTransactionsListComponent = ({
   euroToPlnExchangeRate,
   countedAllEurTransaction,
   countAllEurTransaction,
+  nameOfMaxEurTransaction,
+  maxValueOfEurTransaction,
+  getMaxValueFromTransactionList,
 }) => {
-  // countAllEurTransaction()
-
   const setFloatingPoint = numberForHandler => {
     return +numberForHandler.toFixed(2)
   }
 
-  // const handlerDeleteButton = (idOfNewTransaction) => {
-  //   deleteOneTransactionFromList(idOfNewTransaction)
-  //   countAllEurTransaction()
-  // }
-
   const listOfAllTransaction = allTransactionList
     .filter(obj => obj.visible === true)
     .map(obj => (
-      <OneTransaction
+      <OneTransactionComponent
         key={obj.idOfNewTransaction}
         idOfNewTransaction={obj.idOfNewTransaction}
         nameOfTransaction={obj.nameOfTransaction}
         eurCount={obj.eurCount}
         plnCountOutput={setFloatingPoint(obj.eurCount * euroToPlnExchangeRate)}
-        // visible={typeof obj.visible}
-        // funcOnClick={handlerDeleteButton(obj.idOfNewTransaction)}
-        // funcOnClick={() => deleteOneTransactionFromList(obj.idOfNewTransaction)}
         funcOnClick={() => {
           deleteOneTransactionFromList(obj.idOfNewTransaction)
           countAllEurTransaction()
+          getMaxValueFromTransactionList()
         }}
       />
     ))
@@ -72,17 +41,23 @@ const AllTransactionsListComponent = ({
       <br />
       <strong>count All EUR Transaction: {countedAllEurTransaction}</strong>
       <br />
-      <strong>count All PLN Transaction: {setFloatingPoint(countedAllEurTransaction * euroToPlnExchangeRate)}</strong>
+      <strong>
+        count All PLN Transaction:{' '}
+        {setFloatingPoint(countedAllEurTransaction * euroToPlnExchangeRate)}
+      </strong>
+      <br />
+      <hr />
+      <strong>MAX VALUE</strong>
+      <br />
+      name: {nameOfMaxEurTransaction}
+      <br />
+      valuePL: {' '}
+      { setFloatingPoint(maxValueOfEurTransaction * euroToPlnExchangeRate)}
+      <br />
+      valueEUR: {maxValueOfEurTransaction}
       <br />
     </>
   )
-}
-
-OneTransaction.propTypes = {
-  nameOfTransaction: PropTypes.string.isRequired,
-  eurCount: PropTypes.number.isRequired,
-  plnCountOutput: PropTypes.number.isRequired,
-  funcOnClick: PropTypes.func.isRequired,
 }
 
 AllTransactionsListComponent.propTypes = {
@@ -91,6 +66,9 @@ AllTransactionsListComponent.propTypes = {
   euroToPlnExchangeRate: PropTypes.number.isRequired,
   countedAllEurTransaction: PropTypes.number.isRequired,
   countAllEurTransaction: PropTypes.func.isRequired,
+  nameOfMaxEurTransaction: PropTypes.string.isRequired,
+  maxValueOfEurTransaction: PropTypes.number.isRequired,
+  getMaxValueFromTransactionList: PropTypes.func.isRequired,
 }
 
 export default AllTransactionsListComponent
