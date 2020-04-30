@@ -1,6 +1,6 @@
 {
   "name": "currency-processing-app-rtk-way",
-  "version": "0.56.0",
+  "version": "0.57.0",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.3.5",

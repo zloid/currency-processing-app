@@ -17,7 +17,7 @@ const EuroToPlnExchangeRate = ({
   getNewEuroToPlnExchangeRate,
 }) => {
   const doExchange = (e) => {
-    getNewEuroToPlnExchangeRate(e.target.value)
+    getNewEuroToPlnExchangeRate(Number(e.target.value))
   }
   return (
     <>

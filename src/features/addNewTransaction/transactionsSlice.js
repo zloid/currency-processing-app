@@ -52,7 +52,8 @@ const transactionsSlice = createSlice({
     },
     getNewEuroToPlnExchangeRate(state, action) {
       //Number()
-      state.euroToPlnExchangeRate = +action.payload
+      // state.euroToPlnExchangeRate = +action.payload
+      state.euroToPlnExchangeRate = action.payload
     },
     deleteOneTransactionFromList(state, action) {
       state.allTransactionList.forEach(obj => {
