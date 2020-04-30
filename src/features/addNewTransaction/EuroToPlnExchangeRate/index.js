@@ -25,9 +25,11 @@ const EuroToPlnExchangeRate = ({
         <Col>
           <strong>1 EURO = </strong>
           <input
+            type="text"
             value={euroToPlnExchangeRate}
             onChange={doExchange}
             aria-label="euro-to-pln-exchange-rate"
+            placeholder="exchange-rate"
           ></input>
           <strong> PLN</strong>
         </Col>

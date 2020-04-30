@@ -1,9 +1,39 @@
 import React from 'react'
 import { render, fireEvent, screen } from 'components/test-utils'
+// import { screen } from '@testing-library/dom'
 import '@testing-library/jest-dom/extend-expect'
 //own
 import App from 'components/App'
 
+describe('App', () => {
+  it('exchange rate from start is 4.25', () => {
+    render(<App />)
+
+    const exchangeRate = screen.getByLabelText('euro-to-pln-exchange-rate')
+
+    expect(exchangeRate.value).toBe('4.25')
+  })
+
+  it('transaction list values from start', () => {
+    const { getByText } = render(<App />)
+    // screen.getByText(/nazwa/i)
+    // screen.debug(screen.getByText('NAZWA'))
+    getByText('NAZWA')
+    getByText('KWOTA W EURO')
+    getByText('KWOTA W PLN')
+    getByText('Test transaction')
+    getByText('777')
+    getByText('3302.25')
+    getByText('11/6/2019, 9:00:25 PM')
+    getByText('100')
+    getByText('425')
+    // getByText(/USUŃ/i)
+    // const leftClick = { button: 1 }
+    // fireEvent.click(getByText(/USUŃ/i), leftClick)
+  })
+})
+
+/*
 describe('App', () => {
   it('first left textarea must contain 3.555', () => {
     render(<App />)
@@ -128,3 +158,4 @@ describe('App', () => {
     expect(lengthOfTextareaElementsFour.textContent).toBe('2')
   })
 })
+*/

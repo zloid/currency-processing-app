@@ -8,7 +8,7 @@ import './index.css'
 
 const App = () => {
   return (
-    <>
+    <>      
       <GithubCorner href="https://github.com/zloid/currency-processing-app" />
       <Layout />   
     </>
