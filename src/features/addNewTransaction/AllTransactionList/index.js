@@ -17,10 +17,10 @@ const AllTransactionList = ({ allTransactionList }) => {
           <Badge variant="info">Lista dodanych transakcji</Badge>
         </h2>
         <Row>
-          <Col xs={1}>NAZWA</Col>
-          <Col xs={2}></Col>
-          <Col xs={3}>KWOTA W EURO</Col>
-          <Col xs={3}>KWOTA W PLN</Col>
+          <Col xs={3}>nazwa</Col>
+          {/* <Col xs={2}></Col> */}
+          <Col xs={3}>kwota w euro</Col>
+          <Col xs={4}>kwota w pln</Col>
         </Row>
         {allTransactionList}
       </Col>

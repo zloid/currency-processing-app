@@ -90,4 +90,7 @@ input {
   /* padding-top: 20px; */
   overflow: hidden;
 }
-   
+
+.fatSign {
+  font-weight: bold;
+}

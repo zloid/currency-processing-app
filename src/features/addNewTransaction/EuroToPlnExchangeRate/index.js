@@ -23,7 +23,7 @@ const EuroToPlnExchangeRate = ({
     <>
       <Row>
         <Col>
-          <strong>1 EURO = </strong>
+          <span className="fatSign">1 euro = </span>
           <input
             type="text"
             value={euroToPlnExchangeRate}
@@ -31,7 +31,7 @@ const EuroToPlnExchangeRate = ({
             aria-label="euro-to-pln-exchange-rate"
             placeholder="exchange-rate"
           ></input>
-          <strong> PLN</strong>
+          <span className="fatSign"> pln</span>
         </Col>
         <Col>
           <h1>Przelicznik walutowy</h1>

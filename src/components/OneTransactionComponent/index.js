@@ -28,7 +28,7 @@ const OneTransactionComponent = ({
       </Col>
       <Col xs={4}>{plnCountOutput}</Col>
       <Button onClick={getIdForDeleteTransaction} variant="danger">
-        USUŃ
+        usuń
       </Button>
     </Row>
   )
