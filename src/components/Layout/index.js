@@ -2,7 +2,7 @@ import React from 'react'
 import { Container, Row } from 'react-bootstrap'
 //own
 import EuroToPlnExchangeRate from 'features/addNewTransaction/EuroToPlnExchangeRate'
-import TransactionsInputs from 'features/addNewTransaction/TransactionsInputs'
+import InputsTransactions from 'features/addNewTransaction/InputsTransactions'
 import AllTransactionList from 'features/addNewTransaction/AllTransactionList'
 import ResultInfoBoard from 'features/addNewTransaction/ResultInfoBoard'
 
@@ -11,7 +11,7 @@ const Layout = () => {
     <div>
       <Container>
         <EuroToPlnExchangeRate />
-        <TransactionsInputs />
+        <InputsTransactions />
         <Row>
           <AllTransactionList />          
           <ResultInfoBoard />                    

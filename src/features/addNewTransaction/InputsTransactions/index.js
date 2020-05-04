@@ -9,7 +9,7 @@ const mapDispatch = {
   getTransactionData,
 }
 
-const TransactionsInputs = ({ getTransactionData }) => {
+const InputsTransactions = ({ getTransactionData }) => {
   const [transactionText, setTransactionText] = useState('test')
   const [transactionMoney, setTransactionMoney] = useState('987')
 
@@ -48,8 +48,8 @@ const TransactionsInputs = ({ getTransactionData }) => {
   )
 }
 
-TransactionsInputs.propTypes = {
+InputsTransactions.propTypes = {
   getTransactionData: PropTypes.func.isRequired,
 }
 
-export default connect(null, mapDispatch)(TransactionsInputs)
+export default connect(null, mapDispatch)(InputsTransactions)
