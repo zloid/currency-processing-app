@@ -7,7 +7,7 @@ import { deleteOneTransactionFromList } from 'features/addNewTransaction/transac
 const mapDispatch = {
   deleteOneTransactionFromList,
 }
-
+//using for selectors 
 const OneTransactionComponent = ({
   nameOfTransaction,
   eurCount,

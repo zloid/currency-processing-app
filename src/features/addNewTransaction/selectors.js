@@ -1,25 +1,23 @@
 import React from 'react'
 //own
-import OneTransactionComponent from 'components/OneTransactionComponent'
+import OneTransactionComponent from 'features/addNewTransaction/OneTransactionComponent'
 
 export const selectListOfAllTransaction = (state) => {
   const {
     allTransactionList,
     euroToPlnExchangeRate,
   } = state.transactionsReducer
-  return (
-    allTransactionList
-      .filter(({ visible }) => visible === true)
-      .map(({ idOfNewTransaction, nameOfTransaction, eurCount }) => (
-        <OneTransactionComponent
-          key={idOfNewTransaction}
-          idOfNewTransaction={idOfNewTransaction}
-          nameOfTransaction={nameOfTransaction}
-          eurCount={eurCount}
-          plnCountOutput={Number((eurCount * euroToPlnExchangeRate).toFixed(2))}
-        />
-      ))
-  )
+  return allTransactionList
+    .filter(({ visible }) => visible === true)
+    .map(({ idOfNewTransaction, nameOfTransaction, eurCount }) => (
+      <OneTransactionComponent
+        key={idOfNewTransaction}
+        idOfNewTransaction={idOfNewTransaction}
+        nameOfTransaction={nameOfTransaction}
+        eurCount={eurCount}
+        plnCountOutput={Number((eurCount * euroToPlnExchangeRate).toFixed(2))}
+      />
+    ))
 }
 
 export const selectSumOfAllTransactions = (state) => {
