@@ -6,6 +6,31 @@ import '@testing-library/jest-dom/extend-expect'
 import App from 'components/App'
 
 describe('App', () => {
+
+  
+  //todo: transport to app.test.js
+  /*
+  it('delete first transaction is correct', () => {
+    // render(<AllTransactionList />)
+    render(<App />)
+    const dellButtonsArray = screen.getAllByText(/usuń/i)
+    // const leftClick = { button: 1 }
+    
+    console.log('eeeeeeee', dellButtonsArray.map(e => e.textContent))
+    fireEvent.click(dellButtonsArray[0])
+    fireEvent.click(dellButtonsArray[0])
+    fireEvent.click(dellButtonsArray[0])
+    fireEvent.click(dellButtonsArray[1])
+    fireEvent.click(dellButtonsArray[1])
+    // fireEvent.click(dellButtonsArray[0], leftClick)
+    // fireEvent.click(dellButtonsArray[1], leftClick)
+    // fireEvent.click(dellButtonsArray[1], leftClick)
+    console.log('eeeeeeee', dellButtonsArray.map(e => e.textContent))
+    console.log('eeeeeeee', dellButtonsArray.map(e => e.textContent))
+
+    expect(dellButtonsArray.length).toBe(20)
+  })
+*/
    
   /* 
   it('transaction list values from start', () => {
@@ -32,6 +57,7 @@ describe('App', () => {
 })
 
 /*
+todo: delete stuff below later
 describe('App', () => {
   it('first left textarea must contain 3.555', () => {
     render(<App />)

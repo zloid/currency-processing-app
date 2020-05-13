@@ -6,18 +6,18 @@ import AllTransactionList from 'features/addNewTransaction/AllTransactionList'
 
 describe('AllTransactionList', () => {
   it('header is exist', () => {
-    const {getByText} = render(<AllTransactionList />)
-    
+    const { getByText } = render(<AllTransactionList />)
+
     getByText(/lista dodanych transakcji/i)
     getByText(/nazwa/i)
     getByText(/kwota w euro/i)
     getByText(/kwota w pln/i)
   })
-  
+
   it('two transactions are displayed', () => {
-    const {getByText} = render(<AllTransactionList />)
+    const { getByText } = render(<AllTransactionList />)
     const dellButtonsArray = screen.getAllByText(/usuń/i)
-    
+
     getByText('Test transaction')
     getByText('777')
     getByText('3302.25')
@@ -26,5 +26,4 @@ describe('AllTransactionList', () => {
     getByText('425')
     expect(dellButtonsArray.length).toBe(2)
   })
-
 })
