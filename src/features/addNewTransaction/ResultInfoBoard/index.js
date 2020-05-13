@@ -22,22 +22,22 @@ const ResultInfoBoard = ({ sumOfAllTransactions, maxTransaction }) => {
         <h2>
           <Badge variant="info">Suma wszystkich transakcji</Badge>
         </h2>
-        <strong>w EURO: </strong>
+        <span className="fatSign" title="resultInfoBoard-eur-first">w EURO: </span>
         {sumEur}
         <br />
-        <strong>w PLN: </strong>
+        <span className="fatSign" title="resultInfoBoard-pln-first">w PLN: </span>
         {sumOfAllTransactionsPln}
         <hr />
         <h2>
           <Badge variant="info">Największa transakcja</Badge>
         </h2>
-        <strong>Nazwa: </strong>
+        <span className="fatSign">Nazwa: </span>
         {maxTransactName}
         <br />
-        <strong>Kwota w EURO: </strong>
+        <span className="fatSign" title="resultInfoBoard-eur-second">Kwota w EURO: </span>
         {maxTransactEur}
         <br />
-        <strong>Kwota w PLN: </strong>
+        <span className="fatSign" title="resultInfoBoard-pln-second">Kwota w PLN: </span>
         {maxTransactPln}
       </Col>
     </>
