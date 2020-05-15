@@ -1,15 +1,14 @@
 import React from 'react'
 import { render } from 'react-dom'
-import 'bootstrap/dist/css/bootstrap.css'
-import './index.css'
-import { createStore, applyMiddleware } from 'redux'
-import logger from 'redux-logger'
+import { configureStore } from '@reduxjs/toolkit'
 import { Provider } from 'react-redux'
-import App from './components/App'
-
+//own
+import App from 'components/App'
 import rootReducer from './reducers'
 
-const store = createStore(rootReducer, applyMiddleware(logger))
+const store = configureStore({
+  reducer: rootReducer,
+})
 
 render(
   <Provider store={store}>

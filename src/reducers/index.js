@@ -1,8 +1,7 @@
 import { combineReducers } from 'redux'
-import exchangeReducer from './exchangeReducer'
-import listOfTransactionReducer from './listOfTransactionReducer'
+//own
+import transactionsReducer from 'features/addNewTransaction/transactionsSlice'
 
 export default combineReducers({
-  exchangeReducer,
-  listOfTransactionReducer,
+    transactionsReducer,
 })
