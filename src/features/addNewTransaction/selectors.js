@@ -1,19 +1,21 @@
+/** @module selectors */
 import React from 'react'
 //own
 import OneTransactionComponent from 'features/addNewTransaction/OneTransactionComponent'
-/** @module selectors */
  
 /**
- * Selector for displaying active elements
+ * Selector for displaying active transactions, need JSX.Element OneTransactionComponent for work 
  * @function
+ * @name selectListOfAllTransaction
  * @param {{}} state whole redux state
- * @returns {array} list of react components, mean all enable transaction
+ * @param {array.<object>} state.transactionsReducer.allTransactionList array of objects
+ * @param {number} state.transactionsReducer.euroToPlnExchangeRate float-number of actual rate
+ * @returns {JSX.Element} React elements - all enable transactions
  */
 export const selectListOfAllTransaction = (state) => {
   /**
    * State object destructuring
-   * @constant {[{visible: boolean, idOfNewTransaction: number, nameOfTransaction: string, eurCount: number}]} allTransactionList list of all enable and disable transaction, as collection of object
-   * @constant {number} euroToPlnExchangeRate actual rate
+   * @constant {[{visible: boolean, idOfNewTransaction: number, nameOfTransaction: string, eurCount: number}]} allTransactionList
    */   
   const {
     allTransactionList,

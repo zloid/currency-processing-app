@@ -1,3 +1,4 @@
+/**@module container OneTransactionComponent */
 import React from 'react'
 import { connect } from 'react-redux'
 import { Row, Col, Button } from 'react-bootstrap'
@@ -7,7 +8,18 @@ import { deleteOneTransactionFromList } from 'features/addNewTransaction/transac
 const mapDispatch = {
   deleteOneTransactionFromList,
 }
-//using for selectors 
+/**
+ * Used to selector selectListOfAllTransaction
+ * @function
+ * @name OneTransactionComponent
+ * @param {{}} props
+ * @param {string} props.nameOfTransaction
+ * @param {number} props.eurCount float
+ * @param {number} props.plnCountOutput float
+ * @param {function} props.deleteOneTransactionFromList for dispatch state, send uniq id
+ * @param {number} props.idOfNewTransaction uniq
+ * @returns {JSX.Element} React elements - one transaction
+ */
 const OneTransactionComponent = ({
   nameOfTransaction,
   eurCount,

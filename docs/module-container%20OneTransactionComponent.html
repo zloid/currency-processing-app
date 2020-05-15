@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Module: selectors</title>
+    <title>JSDoc: Module: container OneTransactionComponent</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Module: selectors</h1>
+    <h1 class="page-title">Module: container OneTransactionComponent</h1>
 
     
 
@@ -64,7 +64,7 @@
     
 
     
-    <h4 class="name" id="~selectListOfAllTransaction"><span class="type-signature">(inner) </span>selectListOfAllTransaction<span class="signature">(state)</span><span class="type-signature"> &rarr; {JSX.Element}</span></h4>
+    <h4 class="name" id="~OneTransactionComponent"><span class="type-signature">(inner) </span>OneTransactionComponent<span class="signature">(props)</span><span class="type-signature"> &rarr; {JSX.Element}</span></h4>
     
 
     
@@ -72,7 +72,7 @@
 
 
 <div class="description">
-    Selector for displaying active transactions, need JSX.Element OneTransactionComponent for work
+    Used to selector selectListOfAllTransaction
 </div>
 
 
@@ -108,7 +108,7 @@
 
         <tr>
             
-                <td class="name"><code>state</code></td>
+                <td class="name"><code>props</code></td>
             
 
             <td class="type">
@@ -124,7 +124,7 @@
 
             
 
-            <td class="description last">whole redux state
+            <td class="description last">
                 <h6>Properties</h6>
                 
 
@@ -150,13 +150,13 @@
 
         <tr>
             
-                <td class="name"><code>transactionsReducer.allTransactionList</code></td>
+                <td class="name"><code>nameOfTransaction</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">array.&lt;object></span>
+<span class="param-type">string</span>
 
 
             
@@ -166,14 +166,14 @@
 
             
 
-            <td class="description last">array of objects</td>
+            <td class="description last"></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>transactionsReducer.euroToPlnExchangeRate</code></td>
+                <td class="name"><code>eurCount</code></td>
             
 
             <td class="type">
@@ -189,7 +189,76 @@
 
             
 
-            <td class="description last">float-number of actual rate</td>
+            <td class="description last">float</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>plnCountOutput</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">float</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>deleteOneTransactionFromList</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">for dispatch state, send uniq id</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>idOfNewTransaction</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">uniq</td>
         </tr>
 
     
@@ -237,7 +306,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="selectors.js.html">selectors.js</a>, <a href="selectors.js.html#line6">line 6</a>
+        <a href="OneTransactionComponent_index.js.html">OneTransactionComponent/index.js</a>, <a href="OneTransactionComponent_index.js.html#line11">line 11</a>
     </li></ul></dd>
     
 
@@ -266,7 +335,7 @@
 
         
 <div class="param-desc">
-    React elements - all enable transactions
+    React elements - one transaction
 </div>
 
 
