@@ -1,6 +1,6 @@
 {
   "name": "currency-processing-app-rtk-way",
-  "version": "0.64.10",
+  "version": "0.64.11",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.3.5",
@@ -22,14 +22,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "doc": "jsdoc -c jsdoc-config.json",
-    "d2": "jsdoc2md -t README.hbs src/*.js > README_2.md",
-    "d3": "jsdoc2md -t README.hbs -c jsdoc-config.json src/*.js",
-    "d4": "documentation build index.js -f md",
-    "d5": "documentation build src/** -f html -o docs",
-    "d6": "documentation readme src/** --section=API",
-    "d7": "jsdoc --readme README.md -c jsdoc-config.json",
-    "d8": "jsdoc2md -t README.hbs src/features/addNewTransaction/*.js > README_2.md"
+    "doc": "jsdoc -c jsdoc-config.json"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -54,8 +47,6 @@
     "jsxBracketSameLine": false
   },
   "devDependencies": {
-    "documentation": "^13.0.0",
-    "jsdoc": "^3.6.4",
-    "jsdoc-to-markdown": "^5.0.3"
+    "jsdoc": "^3.6.4"
   }
 }
