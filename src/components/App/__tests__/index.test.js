@@ -6,9 +6,35 @@ import '@testing-library/jest-dom/extend-expect'
 import App from 'components/App'
 
 describe('App', () => {
+  it('add one transaction and check is existing', () => {
+    render(<App />)
+    const buttonForAdding = screen.getByLabelText('add-transaction')
+    const leftClick = { button: 1 }
+    let testWordsArray = screen.getAllByText(/test/i),
+        kwotaWEuroArr = screen.queryByText(/987/),
+        kwotaWPlnArr = screen.queryByText(/4194.75/)
 
+    expect(testWordsArray.length).toBe(2)    
+    expect(kwotaWEuroArr).not.toBeInTheDocument()
+    expect(kwotaWPlnArr).not.toBeInTheDocument()
+    
+    //adding transaction
+    fireEvent.click(buttonForAdding, leftClick)
+
+    testWordsArray = screen.getAllByText(/test/i)
+    kwotaWEuroArr = screen.getAllByText(/987/)
+    kwotaWPlnArr = screen.getAllByText(/4194.75/)
+    
+    expect(testWordsArray.length).toBe(3)
+    expect(kwotaWEuroArr.length).toBe(2)
+    expect(kwotaWPlnArr.length).toBe(2)
+
+    // screen.debug(screen.getAllByText(/987/i))
+  })
+
+})
   
-  //todo: transport to app.test.js
+  //todo: to app.test.js
   /*
   it('delete first transaction is correct', () => {
     // render(<AllTransactionList />)
@@ -47,6 +73,8 @@ describe('App', () => {
     getByText('425')
   }) 
   */
+/* 
+
 
   it('get dell button', () => {
     render(<App />)
@@ -55,9 +83,11 @@ describe('App', () => {
     expect(dellButtonsArray.length).toBe(2)
   })
 })
+ */
 
 /*
 todo: delete stuff below later
+
 describe('App', () => {
   it('first left textarea must contain 3.555', () => {
     render(<App />)

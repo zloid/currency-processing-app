@@ -1,4 +1,4 @@
-/** @module selectors */
+/** @module selectors*/
 import React from 'react'
 //own
 import OneTransactionComponent from 'features/addNewTransaction/OneTransactionComponent'

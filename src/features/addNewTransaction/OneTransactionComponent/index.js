@@ -1,4 +1,4 @@
-/**@module container OneTransactionComponent */
+/**@module container-OneTransactionComponent */
 import React from 'react'
 import { connect } from 'react-redux'
 import { Row, Col, Button } from 'react-bootstrap'
