@@ -1,6 +1,5 @@
 import React from 'react'
 import { render, fireEvent, screen } from 'features/test-utils'
-// import { screen } from '@testing-library/dom'
 import '@testing-library/jest-dom/extend-expect'
 //own
 import App from 'components/App'
@@ -11,31 +10,77 @@ describe('App', () => {
     const buttonForAdding = screen.getByLabelText('add-transaction')
     const leftClick = { button: 1 }
     let testWordsArray = screen.getAllByText(/test/i),
-        kwotaWEuroArr = screen.queryByText(/987/),
-        kwotaWPlnArr = screen.queryByText(/4194.75/)
+      kwotaWEuroArr = screen.queryByText(/987/),
+      kwotaWPlnArr = screen.queryByText(/4194.75/)
 
-    expect(testWordsArray.length).toBe(2)    
-    expect(kwotaWEuroArr).not.toBeInTheDocument()
-    expect(kwotaWPlnArr).not.toBeInTheDocument()
-    
-    //adding transaction
+    expect(testWordsArray.length).toBe(2)
+    expect(kwotaWEuroArr).toBeNull()
+    expect(kwotaWPlnArr).toBeNull()
+
+    //adding default transaction
     fireEvent.click(buttonForAdding, leftClick)
 
     testWordsArray = screen.getAllByText(/test/i)
     kwotaWEuroArr = screen.getAllByText(/987/)
     kwotaWPlnArr = screen.getAllByText(/4194.75/)
-    
+
     expect(testWordsArray.length).toBe(3)
     expect(kwotaWEuroArr.length).toBe(2)
     expect(kwotaWPlnArr.length).toBe(2)
-
-    // screen.debug(screen.getAllByText(/987/i))
   })
+  it('correct counting ammount of all transaction (selector selectSumOfAllTransactions is working)', () => {
+    render(<App />)
+    const amountHeader = screen.getByText(/suma wszystkich transakcji/i)
+    const amountTransactEur = screen.getByTitle('resultInfoBoard-eur-value')
+    const amountTransactPln = screen.getByTitle('resultInfoBoard-pln-value')
+    const allDeleteButton = screen.getAllByText(/usuń/i)
+    const leftClick = { button: 1 }
 
+    // default ammount is working
+    expect(amountHeader).toBeInTheDocument()
+    expect(amountTransactEur.textContent).toBe('877')
+    expect(amountTransactPln.textContent).toBe('3727.25')
+
+    //delete first default transaction
+    fireEvent.click(allDeleteButton[0], leftClick)
+
+    expect(amountHeader).toBeInTheDocument()
+    expect(amountTransactEur.textContent).toBe('100')
+    expect(amountTransactPln.textContent).toBe('425')
+
+    //delete second default transaction
+    fireEvent.click(screen.getByText(/usuń/i), leftClick)
+
+    expect(amountHeader).toBeInTheDocument()
+    expect(amountTransactEur.textContent).toBe('0')
+    expect(amountTransactPln.textContent).toBe('0')
+    expect(screen.queryByText(/usuń/i)).toBeNull()
+  })
+  it('correct select of max transaction (selector selectMaxValTransaction is working)', () => {
+    render(<App />)
+    const maxTransactHeader = screen.getByText(/największa transakcja/i)
+    const nameOfMaxTransaction = screen.getByTitle('resultInfoBoard-max-transact-name')
+    const maxTransactEuro = screen.getByTitle('resultInfoBoard-eur-max')
+    const maxTransactPln = screen.getByTitle('resultInfoBoard-pln-max')
+    const buttonAddTransaction = screen.getByLabelText('add-transaction')
+    const leftClick = { button: 1 }
+    //default
+    expect(maxTransactHeader).toBeInTheDocument()
+    expect(nameOfMaxTransaction.textContent).toBe('Test transaction')
+    expect(maxTransactEuro.textContent).toBe('777')
+    expect(maxTransactPln.textContent).toBe('3302.25')
+    //add transaction
+    fireEvent.click(buttonAddTransaction, leftClick)
+    
+    expect(maxTransactHeader).toBeInTheDocument()
+    expect(nameOfMaxTransaction.textContent).toBe('test')
+    expect(maxTransactEuro.textContent).toBe('987')
+    expect(maxTransactPln.textContent).toBe('4194.75')
+  })
 })
-  
-  //todo: to app.test.js
-  /*
+
+//todo: to app.test.js
+/*
   it('delete first transaction is correct', () => {
     // render(<AllTransactionList />)
     render(<App />)
@@ -57,8 +102,8 @@ describe('App', () => {
     expect(dellButtonsArray.length).toBe(20)
   })
 */
-   
-  /* 
+
+/* 
   it('transaction list values from start', () => {
     const { getByText } = render(<App />)
     getByText('Lista dodanych transakcji')

@@ -13,8 +13,8 @@ const Layout = () => {
         <EuroToPlnExchangeRate />
         <InputsTransactions />
         <Row>
-          <AllTransactionList />          
-          <ResultInfoBoard />                    
+          <AllTransactionList />
+          <ResultInfoBoard />
         </Row>
       </Container>
     </div>

@@ -19,7 +19,7 @@ const initialState = {
 }
 
 let nextTransactionId = 2
-
+//all bellow is immutable because used Redux Toolkit and Immer
 const transactionsSlice = createSlice({
   name: 'allTransactions',
   initialState,

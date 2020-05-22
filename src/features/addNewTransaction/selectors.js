@@ -1,4 +1,4 @@
-/** @module selectors*/
+/** @module selectors-for-addNewTransaction-feature*/
 import React from 'react'
 //own
 import OneTransactionComponent from 'features/addNewTransaction/OneTransactionComponent'
@@ -108,3 +108,4 @@ export const selectMaxValTransaction = (state) => {
   }
   return ['Brak transakcji', 'Brak transakcji', 'Brak transakcji']
 }
+

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Module: container-OneTransactionComponent</title>
+    <title>JSDoc: Module: container-ResultInfoBoard</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Module: container-OneTransactionComponent</h1>
+    <h1 class="page-title">Module: container-ResultInfoBoard</h1>
 
     
 
@@ -64,7 +64,7 @@
     
 
     
-    <h4 class="name" id="~OneTransactionComponent"><span class="type-signature">(inner) </span>OneTransactionComponent<span class="signature">(props)</span><span class="type-signature"> &rarr; {JSX.Element}</span></h4>
+    <h4 class="name" id="~ResultInfoBoard"><span class="type-signature">(inner) </span>ResultInfoBoard<span class="signature">(props)</span><span class="type-signature"> &rarr; {JSX.Element}</span></h4>
     
 
     
@@ -72,7 +72,7 @@
 
 
 <div class="description">
-    Used to selector selectListOfAllTransaction
+    Used with selectors selectSumOfAllTransactions and selectMaxValTransaction
 </div>
 
 
@@ -150,13 +150,13 @@
 
         <tr>
             
-                <td class="name"><code>nameOfTransaction</code></td>
+                <td class="name"><code>sumOfAllTransactions</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">array</span>
 
 
             
@@ -166,20 +166,20 @@
 
             
 
-            <td class="description last"></td>
+            <td class="description last">[sumEur, sumOfAllTransactionsPln]</td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>eurCount</code></td>
+                <td class="name"><code>maxTransaction</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">number</span>
+<span class="param-type">array</span>
 
 
             
@@ -189,76 +189,7 @@
 
             
 
-            <td class="description last">float</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>plnCountOutput</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">float</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>deleteOneTransactionFromList</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">for dispatch state, send uniq id</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>idOfNewTransaction</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">uniq</td>
+            <td class="description last">[maxTransactName, maxTransactEur, maxTransactPln]</td>
         </tr>
 
     
@@ -306,7 +237,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="OneTransactionComponent_index.js.html">OneTransactionComponent/index.js</a>, <a href="OneTransactionComponent_index.js.html#line11">line 11</a>
+        <a href="ResultInfoBoard_index.js.html">ResultInfoBoard/index.js</a>, <a href="ResultInfoBoard_index.js.html#line16">line 16</a>
     </li></ul></dd>
     
 
@@ -335,7 +266,7 @@
 
         
 <div class="param-desc">
-    React elements - one transaction
+    info board with ammount result of all transaction and one max value transaction
 </div>
 
 
