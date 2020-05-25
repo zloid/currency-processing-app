@@ -15,8 +15,7 @@ const mapState = (state) => ({
 })
 /**
  * Used with selectors selectSumOfAllTransactions and selectMaxValTransaction
- * @function
- * @name ResultInfoBoard
+ * @function ResultInfoBoard
  * @param {{}} props
  * @param {array} props.sumOfAllTransactions [sumEur, sumOfAllTransactionsPln]
  * @param {array} props.maxTransaction [maxTransactName, maxTransactEur, maxTransactPln]

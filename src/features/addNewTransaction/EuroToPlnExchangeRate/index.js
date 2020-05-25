@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { Row, Col } from 'react-bootstrap'
 //own
 import { getNewEuroToPlnExchangeRate } from 'features/addNewTransaction/transactionsSlice'
+import { selectOnlyFloatNumberString } from 'features/addNewTransaction/selectors'
 
 const mapState = (state) => ({
   euroToPlnExchangeRate: state.transactionsReducer.euroToPlnExchangeRate,
@@ -17,7 +18,9 @@ const EuroToPlnExchangeRate = ({
   getNewEuroToPlnExchangeRate,
 }) => {
   const doExchange = (e) => {
-    getNewEuroToPlnExchangeRate(Number(e.target.value))
+    //todo
+    let middleValue = selectOnlyFloatNumberString(e.target.value)
+    return getNewEuroToPlnExchangeRate(Number(middleValue))
   }
   return (
     <>

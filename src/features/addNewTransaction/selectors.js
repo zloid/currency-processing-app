@@ -4,8 +4,7 @@ import React from 'react'
 import OneTransactionComponent from 'features/addNewTransaction/OneTransactionComponent'
 /**
  * 1.00 -> 1; 3.33333 -> 3.33;
- * @function
- * @name numberToFixedFloor
+ * @function numberToFixedFloor
  * @param {number} inNumber float
  * @returns {number} floor, toFixed, float
  */
@@ -14,8 +13,7 @@ function numberToFixedFloor(inNumber) {
 }
 /**
  * Selector for displaying active transactions, need JSX.Element OneTransactionComponent for work
- * @function
- * @name selectListOfAllTransaction
+ * @function selectListOfAllTransaction
  * @param {{}} state whole redux state
  * @param {array.<object>} state.transactionsReducer.allTransactionList array of objects
  * @param {number} state.transactionsReducer.euroToPlnExchangeRate float-number of actual rate
@@ -46,8 +44,7 @@ export const selectListOfAllTransaction = (state) => {
 }
 /**
  * Selector for counting amount of all transaction in eur and in pln
- * @function
- * @name selectSumOfAllTransactions
+ * @function selectSumOfAllTransactions
  * @param {{}} state whole redux state
  * @param {array.<object>} state.transactionsReducer.allTransactionList array of objects
  * @param {number} state.transactionsReducer.euroToPlnExchangeRate float-number of actual rate
@@ -74,8 +71,7 @@ export const selectSumOfAllTransactions = (state) => {
 }
 /**
  * Selector for get one biggest transaction from array of all transaction
- * @function
- * @name selectMaxValTransaction
+ * @function selectMaxValTransaction
  * @param {{}} state whole redux state
  * @param {array.<object>} state.transactionsReducer.allTransactionList array of objects
  * @param {number} state.transactionsReducer.euroToPlnExchangeRate float-number of actual rate
@@ -109,3 +105,26 @@ export const selectMaxValTransaction = (state) => {
   return ['Brak transakcji', 'Brak transakcji', 'Brak transakcji']
 }
 
+/**
+ * '0000,1,2,3 ()}{&*(^%)}{}[]' -> '0.123'
+ * @function selectOnlyFloatNumberString
+ * @param {string} inputMessString input bad string with any character
+ * @returns {string} normalized float number-like string
+ */
+export function selectOnlyFloatNumberString(inputMessString) {
+  let middleValue = inputMessString
+    // 001.2,3%[]{}^&*() -> 001.2,3
+    .replace(/[^0-9.,]/g, '')
+    // 001.2,3 -> 001.2.3
+    .replace(/,/g, '.')
+    // 001.2.3 -> 1.23
+    .replace(/^0+(\d)/, '$1')
+    // .123 -> 0.123
+    .replace(/^\./, '0.')
+    // 1.2.3.4.5.6 -> 1.23456
+    // 1....2 -> 1.2
+    .replace(/\./, '#')
+    .replace(/\./g, '')
+    .replace(/#/, '.')
+  return middleValue
+}

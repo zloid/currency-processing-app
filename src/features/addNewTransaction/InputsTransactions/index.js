@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { Row, Col, Button } from 'react-bootstrap'
 //own
 import { getTransactionData } from 'features/addNewTransaction/transactionsSlice'
+import { selectOnlyFloatNumberString } from 'features/addNewTransaction/selectors'
 
 const mapDispatch = {
   getTransactionData,
@@ -19,6 +20,11 @@ const InputsTransactions = ({ getTransactionData }) => {
       transactionMoney: Number(transactionMoney),
     })
 
+  const onChangeInputCallback = (e) => {
+    let middleValue = selectOnlyFloatNumberString(e.target.value)
+    return setTransactionMoney(middleValue)
+  }
+
   return (
     <>
       <Row>
@@ -31,7 +37,7 @@ const InputsTransactions = ({ getTransactionData }) => {
           ></input>
           <input
             value={transactionMoney}
-            onChange={(e) => setTransactionMoney(e.target.value)}
+            onChange={onChangeInputCallback}
             aria-label="transaction-value"
             placeholder="Kwota w EURO"
           ></input>
