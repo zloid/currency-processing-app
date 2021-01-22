@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/currency-processing-app/static/css/main.4ee0c25a.chunk.css",
+    "main.js": "/currency-processing-app/static/js/main.24715856.chunk.js",
+    "main.js.map": "/currency-processing-app/static/js/main.24715856.chunk.js.map",
+    "runtime-main.js": "/currency-processing-app/static/js/runtime-main.111d2895.js",
+    "runtime-main.js.map": "/currency-processing-app/static/js/runtime-main.111d2895.js.map",
+    "static/css/2.69121389.chunk.css": "/currency-processing-app/static/css/2.69121389.chunk.css",
+    "static/js/2.2167a1b6.chunk.js": "/currency-processing-app/static/js/2.2167a1b6.chunk.js",
+    "static/js/2.2167a1b6.chunk.js.map": "/currency-processing-app/static/js/2.2167a1b6.chunk.js.map",
+    "index.html": "/currency-processing-app/index.html",
+    "precache-manifest.323d8de0080fcd20cfa28823627a83f1.js": "/currency-processing-app/precache-manifest.323d8de0080fcd20cfa28823627a83f1.js",
+    "service-worker.js": "/currency-processing-app/service-worker.js",
+    "static/css/2.69121389.chunk.css.map": "/currency-processing-app/static/css/2.69121389.chunk.css.map",
+    "static/css/main.4ee0c25a.chunk.css.map": "/currency-processing-app/static/css/main.4ee0c25a.chunk.css.map",
+    "static/js/2.2167a1b6.chunk.js.LICENSE.txt": "/currency-processing-app/static/js/2.2167a1b6.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.111d2895.js",
+    "static/css/2.69121389.chunk.css",
+    "static/js/2.2167a1b6.chunk.js",
+    "static/css/main.4ee0c25a.chunk.css",
+    "static/js/main.24715856.chunk.js"
+  ]
+}
